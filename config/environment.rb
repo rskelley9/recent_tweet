@@ -47,11 +47,4 @@ Twitter.configure do |config|
   config.oauth_token_secret = ENV['OAUTH_TOKEN_SECRET']
 end
 
-# Twitter.configure do |config|
-#   config.consumer_key = 'hljxf8HHtXHc7SSDa6G6bg'
-#   config.consumer_secret = '4BxoQ0iYhB9Ydi3SwWbr9LSIBCjRyXE2BOvYrhSA'
-#   config.oauth_token = '1426903309-Jvnsvox4kfGWsZr18Rc3nLumcosgJuj5JFL54AB'
-#   config.oauth_token_secret = 'FUCMdA1jg4HhneMGUW29wjgCRp8Qa7o1zgElHIT74'
-# end
-
 
