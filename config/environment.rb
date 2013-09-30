@@ -33,7 +33,7 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
-# env_config = YAML.load_file(APP_ROOT.join('config', 'twitter.yaml'))
+
 
 twitter_path = APP_ROOT.join('config', 'twitter.yml')
 YAML.load(File.open(twitter_path)).each do |k,v|
@@ -47,6 +47,11 @@ Twitter.configure do |config|
   config.oauth_token_secret = ENV['OAUTH_TOKEN_SECRET']
 end
 
-
+# Twitter.configure do |config|
+#   config.consumer_key = 'hljxf8HHtXHc7SSDa6G6bg'
+#   config.consumer_secret = '4BxoQ0iYhB9Ydi3SwWbr9LSIBCjRyXE2BOvYrhSA'
+#   config.oauth_token = '1426903309-Jvnsvox4kfGWsZr18Rc3nLumcosgJuj5JFL54AB'
+#   config.oauth_token_secret = 'FUCMdA1jg4HhneMGUW29wjgCRp8Qa7o1zgElHIT74'
+# end
 
 

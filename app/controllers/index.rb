@@ -5,7 +5,7 @@ get '/' do
   erb :index
 end
 
-get '/:username' do
+post '/user' do
   @user = TwitterUser.find_or_create_by_name(params[:username])
   
     if stale?(@user.updated_at)
@@ -13,14 +13,21 @@ get '/:username' do
     end 
 
     if @user.tweets.empty?
+      
       @tweets = Twitter.user_timeline(params[:username])
       @tweets.each do |eachtweet|
         Tweet.create(tweet_text: eachtweet.text, twitter_user_id: @user.id)  
       end 
-        erb :tweet_new 
+
+        if request.xhr?
+          erb :tweet_new, layout: false
+        else 
+          erb :tweet_new
+        end 
+
     else 
         @tweets = @user.tweets.limit(3)  
-        erb :tweet
+        erb :tweet, layout: false
     end 
 end 
 
